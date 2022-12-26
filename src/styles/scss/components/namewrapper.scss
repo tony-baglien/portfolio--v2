@@ -1,0 +1,48 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.nameWrapper {
+    display: grid;
+    padding-left: 2em;
+    padding-right: 2em;
+    @include m.lg {
+        width: 100vw;
+        height: 100vh;
+        padding-left: v.$desktop-section;
+        padding-right: v.$desktop-section;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        align-items: start;
+    }
+
+    &_title {
+        font-size: 4em;
+        color: v.$text-primary;
+
+        @include m.md {
+            font-size: 6em;
+        }
+
+        @include m.lg {
+            font-size: 5em;
+
+            grid-column: 1 / span 3;
+            grid-row: 2;
+        }
+    }
+
+    &_occupation {
+        display: none;
+        color: v.$background-dark;
+        font-size: 2em;
+        @include m.sm {
+            display: block;
+        }
+        @include m.lg {
+            font-size: 2.5em;
+
+            grid-row: 4;
+            grid-column: 7 / span 6;
+        }
+    }
+}

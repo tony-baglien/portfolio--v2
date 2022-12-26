@@ -1,0 +1,102 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.aboutWrapper {
+    margin-top: 10em;
+    background: #ffede3;
+    height: 100vh;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+
+    box-shadow: -20px 0 4px rgba(0, 0, 0, 0.25), 20px 0 4px rgba(0, 0, 0, 0.25);
+
+    display: grid;
+    position: relative;
+    grid-template-rows: 10% 1fr;
+
+    padding-top: 6em;
+    padding-left: 2em;
+    padding-right: 2em;
+
+    @include m.sm {
+        background: none;
+        box-shadow: none;
+        border-radius: none;
+        margin-top: 0px;
+        padding-top: 3em;
+        height: 60vh;
+        align-items: center;
+
+        grid-template-rows: repeat(2, 50%);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.lg {
+        grid-template-rows: min-content 1fr 1fr;
+        height: 45em;
+    }
+
+    &_header {
+        &--about {
+            display: none;
+
+            @include m.lg {
+                display: block;
+                padding-bottom: 1em;
+                @include m.section_header;
+            }
+        }
+        &--frontend {
+            display: block;
+            color: v.$background-dark;
+            font-size: 2em;
+
+            @include m.sm {
+                display: none;
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 12em solid transparent;
+        border-right: 12em solid transparent;
+
+        border-bottom: 16em solid v.$background-dark;
+
+        position: absolute;
+        z-index: -1;
+        top: -10em;
+        right: 50%;
+        transform: translateX(50%);
+
+        @include m.sm {
+            display: none;
+        }
+    }
+    &_summary {
+        display: none;
+        font-family: v.$franklin-gothic;
+        font-size: 1.5em;
+        text-align: left;
+        line-height: 1.5;
+
+        @include m.sm {
+            display: block;
+        }
+
+        @include m.lg {
+            grid-row: 2;
+            grid-column: span 2;
+        }
+
+        .capital {
+            font-size: 1.5em;
+            font-family: v.$cooper-black;
+            color: v.$background-dark;
+        }
+    }
+}

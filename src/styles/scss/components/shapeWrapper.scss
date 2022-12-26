@@ -1,0 +1,35 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.shape {
+    &_text {
+        font-family: v.$franklin-gothic;
+        fill: v.$background-dark;
+    }
+    polygon {
+        fill: none;
+        stroke: #000;
+
+        &.inner {
+            fill: v.$background-dark;
+
+            &--0 {
+                opacity: 1;
+            }
+            &--1 {
+                opacity: 0.8;
+            }
+            &--2 {
+                opacity: 0.6;
+            }
+            &--3 {
+                opacity: 0.4;
+            }
+        }
+
+        &.morphing {
+            fill: v.$text-primary;
+            opacity: 0.8;
+        }
+    }
+}

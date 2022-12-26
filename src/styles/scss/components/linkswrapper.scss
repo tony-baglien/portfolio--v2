@@ -1,0 +1,12 @@
+@use "../variables" as v;
+.linksWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    .fa-github,
+    .fa-linkedin {
+        font-size: 4em;
+        cursor: pointer;
+        color: v.$background;
+    }
+}

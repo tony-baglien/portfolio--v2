@@ -1,0 +1,27 @@
+@import url("https://fonts.cdnfonts.com/css/cooper-black");
+@import url("https://fonts.cdnfonts.com/css/franklin-gothic-medium-cond");
+
+//Colors
+
+$background: #ffcdb2;
+$text-primary: #b5838d;
+$component-background: #e5989b;
+$background-dark: #6d6875;
+
+//Fonts
+$cooper-black: "Cooper Black", sans-serif;
+$franklin-gothic: "Franklin Gothic Medium Cond", sans-serif;
+
+//margins
+$desktop-section: 250px;
+
+//breakpoints
+
+//sm mobile phones
+$screen-sm-min: 428px;
+//md tablets in portrait
+$screen-md-min: 834px;
+//lg tablets in landscape, small desktop
+$screen-lg-min: 1194px;
+//xl large desktop
+$screen-xl-min: 1920px;
