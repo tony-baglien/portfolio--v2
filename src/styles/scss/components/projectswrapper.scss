@@ -6,11 +6,12 @@
     padding-top: 1em;
     padding-bottom: 3em;
 
+    height: max-content;
+
     @include m.sm {
         background-color: #ffede3;
         border-top-left-radius: 100px;
         border-top-right-radius: 100px;
-        margin-bottom: 6em;
 
         box-shadow: -20px 0 4px rgba(0, 0, 0, 0.25),
             20px 0 4px rgba(0, 0, 0, 0.25);
@@ -19,7 +20,6 @@
         background-color: transparent;
         border-radius: 0;
         box-shadow: none;
-        margin-bottom: 3em;
     }
 
     @include m.lg {
@@ -28,12 +28,26 @@
 
     &_header {
         @include m.section_header;
+        padding-left: 1em;
+
+        @include m.md {
+            padding-bottom: 1em;
+        }
+
+        @include m.lg {
+            padding-bottom: 3em;
+        }
     }
 
     .projectsContainer {
+        @include m.sm {
+            display: grid;
+            grid-template-rows: repeat(2, 50%);
+            justify-items: stretch;
+        }
         @include m.md {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 50%);
             align-items: center;
             justify-items: stretch;
             gap: 1em;
@@ -49,20 +63,26 @@
         padding-top: 2.5em;
         width: 100%;
 
+        @include m.sm {
+            justify-content: space-evenly;
+        }
         @include m.md {
             display: block;
             padding-top: 0px;
         }
-        &_image {
+        &_video {
             flex-shrink: 0;
-            height: 20vh;
-            width: 50%;
+            height: 10em;
+            width: 10em;
             border-radius: 50%;
             transition: 0.1s ease-in-out;
 
             box-shadow: -10px -10px 20px #ffe2d1,
                 10px 10px 20px rgba(0, 0, 0, 25%);
 
+            overflow: hidden;
+
+            position: relative;
             @include m.md {
                 width: 100%;
                 border-radius: 10px;
@@ -70,21 +90,66 @@
 
             @include m.lg {
                 height: 45vh;
+                object-fit: fill;
             }
             video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+                display: none;
+
+                @include m.lg {
+                    display: block;
+                    object-fit: fill;
+                    height: 100%;
+                    width: 100%;
+                }
             }
 
             &:hover {
                 cursor: pointer;
                 transform: scale(1.05);
             }
+
+            &--food {
+                &:after {
+                    content: "";
+                    background-image: url("/src/images/FoodOrder_StillZoomed.jpg");
+                    background-size: cover;
+                    display: block;
+                    height: 10em;
+                    width: 10em;
+
+                    @include m.md {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    @include m.lg {
+                        display: none;
+                    }
+                }
+            }
+            &--hacker {
+                &:after {
+                    content: "";
+                    background-image: url("/src/images/hacker_new_still.jpg");
+                    background-size: cover;
+                    display: block;
+                    height: 10em;
+                    width: 10em;
+
+                    @include m.md {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    @include m.lg {
+                        display: none;
+                    }
+                }
+            }
         }
 
         &_text {
-            display: none;
+            display: block;
 
             @include m.sm {
                 display: block;
@@ -92,20 +157,24 @@
             @include m.md {
                 display: none;
             }
+
+            &--description {
+                display: none;
+            }
+
+            &--header {
+                @include m.section_header;
+                text-align: center;
+                color: v.$text-primary;
+            }
         }
 
         &--fliped {
             flex-direction: row-reverse;
+            text-align: right;
 
             @include m.sm {
                 flex-direction: row;
-            }
-        }
-        &.showOnMd {
-            display: none;
-
-            @include m.md {
-                display: block;
             }
         }
     }

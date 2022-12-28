@@ -11,12 +11,13 @@
     box-shadow: -20px 0 4px rgba(0, 0, 0, 0.25), 20px 0 4px rgba(0, 0, 0, 0.25);
 
     display: grid;
-    position: relative;
-    grid-template-rows: 10% 1fr;
+    grid-template-rows: 5% 1fr;
 
     padding-top: 6em;
     padding-left: 2em;
     padding-right: 2em;
+
+    position: relative;
 
     @include m.sm {
         background: none;
@@ -28,12 +29,14 @@
         align-items: center;
 
         grid-template-rows: repeat(2, 50%);
-        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.md {
+        height: 45em;
     }
 
     @include m.lg {
         grid-template-rows: min-content 1fr 1fr;
-        height: 45em;
     }
 
     &_header {
@@ -57,7 +60,7 @@
         }
     }
 
-    &:after {
+    &:before {
         content: "";
         display: block;
         width: 0;

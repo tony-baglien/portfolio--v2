@@ -10,9 +10,11 @@
     height: 100%;
 
     @include m.sm {
+        height: 20em;
         align-content: center;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, min-content);
+        padding-left: 0;
     }
 
     &_bar {
